@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgdvhvc8csvlf"]
+[gd_scene load_steps=7 format=3 uid="uid://bgdvhvc8csvlf"]
 
 [ext_resource type="Texture2D" uid="uid://dqdpf520b0e2b" path="res://Resources/TileSprite.png" id="1_vgi4h"]
 [ext_resource type="PackedScene" uid="uid://dl50nth4wyq5e" path="res://player/player.tscn" id="2_ugg4g"]
+[ext_resource type="PackedScene" uid="uid://cq4tjr6aqob6f" path="res://Enemy/enemy.tscn" id="3_x1bcw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0k23y"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -82,3 +83,9 @@ layer_0/tile_data = PackedInt32Array(-327691, 1, 0, -327690, 1, 0, -262153, 1, 0
 
 [node name="player" parent="TileMap" instance=ExtResource("2_ugg4g")]
 position = Vector2(59, 25)
+
+[node name="Enemy" parent="." instance=ExtResource("3_x1bcw")]
+position = Vector2(-199, 46)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_x1bcw")]
+position = Vector2(267, -78)
