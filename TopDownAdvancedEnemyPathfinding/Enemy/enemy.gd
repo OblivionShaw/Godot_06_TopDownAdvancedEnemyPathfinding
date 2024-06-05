@@ -19,9 +19,10 @@ func _physics_process(delta):
 	if nav_agent.is_navigation_finished():
 		return
 	var axis = to_local(nav_agent.get_next_path_position()).normalized()
-	velocity = axis * speed
-	
-	move_and_slide()
+	#velocity = axis * speed
+	#move_and_slide()
+	var intended_velocity = axis * speed
+	nav_agent.set_velocity(intended_velocity)
 
 func recalc_path():
 	if target_node:
@@ -39,3 +40,8 @@ func _on_aggro_range_area_entered(area):
 func _on_de_aggro_range_area_exited(area):
 	if area.owner == target_node:
 		target_node = null
+
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity):
+	velocity = safe_velocity
+	move_and_slide()
